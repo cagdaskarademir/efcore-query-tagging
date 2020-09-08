@@ -1,0 +1,16 @@
+version: "3.4"
+
+services:
+  app:
+    image: cagdaskarademir/efcore-query-tagging:0.4
+    container_name: query-tagging
+    depends_on:
+      - db
+  db:
+    image: "mcr.microsoft.com/mssql/server"
+    container_name: database
+    environment:
+      SA_PASSWORD: "Aa123456"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
